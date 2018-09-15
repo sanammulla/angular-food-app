@@ -14,24 +14,29 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe(
-            'A Test Recipe', 
-            'This is simply a test recipe', 
-            'https://get.pxhere.com/photo/dish-meal-food-recipe-breakfast-fast-food-squid-lunch-cuisine-delicious-rice-thailand-shrimp-asian-food-vegetarian-food-foodstuff-thailand-food-thai-food-side-dish-the-pork-fried-rice-made-southeast-asian-food-steamed-rice-stir-fried-seafood-a-fried-egg-plate-lunch-1377212.jpg',
+            'Dal Bati', 
+            'Super Delicious', 
+            'https://www.ruchiskitchen.com/wp-content/uploads/2014/11/Dal-Bati-recipe.jpg',
             [
-                new Ingredient('Meat', 2),
-                new Ingredient('French Fries', 20)
+                new Ingredient('Dal', 100),
+                new Ingredient('Flour', 200)
             ]
         ),
         new Recipe(
-            'A Test Recipe2', 
-            'This is simply a test recipe', 
-            'https://get.pxhere.com/photo/dish-meal-food-recipe-breakfast-fast-food-squid-lunch-cuisine-delicious-rice-thailand-shrimp-asian-food-vegetarian-food-foodstuff-thailand-food-thai-food-side-dish-the-pork-fried-rice-made-southeast-asian-food-steamed-rice-stir-fried-seafood-a-fried-egg-plate-lunch-1377212.jpg',
+            'Pizza', 
+            'Tasty', 
+            'https://d33oocx83zywzt.cloudfront.net/img650_new/10100701116.jpg',
             [
-                new Ingredient('Buns', 3),
+                new Ingredient('Flour', 300),
                 new Ingredient('Salad', 4)
             ]
         )
     ];
+
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipes () {
         return this.recipes.slice();
